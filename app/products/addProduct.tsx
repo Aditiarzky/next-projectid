@@ -16,7 +16,7 @@ const AddProduct = ({ brands }: { brands: Brand[] }) => {
   const handleSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    await axios.post("/api/products", {
+    await axios.post(`/api/products?cacheBuster=${Date.now()}`, {
       title: title,
       price: Number(price),
       brandId: Number(brand),

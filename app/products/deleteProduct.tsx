@@ -18,7 +18,7 @@ const DeleteProduct = ({ product }: { product: Product }) => {
 
   const handleDelete = async (productId: number) => {
     setIsLoading(true);
-    await axios.delete(`/api/products/${productId}`);
+    await axios.delete(`/api/products/${productId}?cacheBuster=${Date.now()}`);
     setIsLoading(false);
     router.refresh();
     setIsOpen(false);

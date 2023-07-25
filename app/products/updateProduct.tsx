@@ -29,7 +29,7 @@ const UpdateProduct = ({
   const handleUpdate = async (e: SyntheticEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    await axios.patch(`/api/products/${product.id}`, {
+    await axios.patch(`/api/products/${product.id}?cacheBuster=${Date.now()}`, {
       title: title,
       price: Number(price),
       brandId: Number(brand),
