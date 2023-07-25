@@ -14,5 +14,9 @@ module.exports = {
       },
     },
   },
+<<<<<<< HEAD
   plugins: [],
+=======
+  plugins: [require("daisyui")],
+>>>>>>> 435401f (routing next)
 }

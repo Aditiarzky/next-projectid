@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import Image from 'next/image'
 
 export default function Home() {
@@ -111,3 +112,10 @@ export default function Home() {
     </main>
   )
 }
+=======
+const Home = () => {
+  return <div>Home Page</div>;
+};
+
+export default Home;
+>>>>>>> 435401f (routing next)
