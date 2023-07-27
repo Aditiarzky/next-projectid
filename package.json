@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma migrate resolve --applied 20230719041549_init_4 --schema=./prisma/schema.prisma && next build",
     "start": "next start",
     "lint": "next lint",
     "postinstall": "prisma generate"
