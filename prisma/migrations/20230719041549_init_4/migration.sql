@@ -1,22 +1,12 @@
--- CreateTable
-CREATE TABLE "Brand" (
-    "id" SERIAL NOT NULL,
-    "name" TEXT NOT NULL,
+– CreateTable CREATE TABLE Brand ( id INT NOT NULL AUTO_INCREMENT, name VARCHAR(255) NOT NULL,
 
-    CONSTRAINT "Brand_pkey" PRIMARY KEY ("id")
+PRIMARY KEY (`id`)
+Copy
 );
 
--- CreateTable
-CREATE TABLE "Product" (
-    "id" SERIAL NOT NULL,
-    "title" TEXT NOT NULL,
-    "price" INTEGER NOT NULL,
-    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" TIMESTAMP(3) NOT NULL,
-    "brandId" INTEGER NOT NULL,
+– CreateTable CREATE TABLE Product ( id INT NOT NULL AUTO_INCREMENT, title VARCHAR(255) NOT NULL, price INT NOT NULL, createdAt TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP, updatedAt TIMESTAMP(3) NOT NULL, brandId INT NOT NULL,
 
-    CONSTRAINT "Product_pkey" PRIMARY KEY ("id")
+PRIMARY KEY (`id`),
+CONSTRAINT `Product_brandId_fkey` FOREIGN KEY (`brandId`) REFERENCES `Brand`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE
+Copy
 );
-
--- AddForeignKey
-ALTER TABLE "Product" ADD CONSTRAINT "Product_brandId_fkey" FOREIGN KEY ("brandId") REFERENCES "Brand"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
