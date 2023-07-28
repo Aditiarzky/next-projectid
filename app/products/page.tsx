@@ -3,7 +3,6 @@ import AddProduct from "./addProduct";
 import DeleteProduct from "./deleteProduct";
 import UpdateProduct from "./updateProduct";
 import AddBrand from "./addBrand";
-import axios from "axios"
 const prisma = new PrismaClient();
 
 const getProducts = async () => {
@@ -14,7 +13,6 @@ const getProducts = async () => {
       price: true,
       brandId: true,
       brand: true,
-      createdAt: true
     },
   });
   return res;
@@ -25,7 +23,10 @@ const getBrands = async () => {
   return res;
 };
 
+
 const Product = async () => {
+  const consol = await getProducts();
+  console.log(consol)
   const [products, brands] = await Promise.all([getProducts(), getBrands()]);
   return (
     <div>
